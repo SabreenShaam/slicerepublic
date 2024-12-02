@@ -1,0 +1,111 @@
+{% extends 'emails/base_email.html' %}
+{% load staticfiles %}
+
+{% block content %}
+    <tbody>
+    <tr>
+        <td valign="top" align="center"
+            style="height: 100% !important; width: 100% !important; padding: 20px; margin: 0px; border-top: 0px none;">
+            <table width="600" border="0" cellspacing="0" cellpadding="0"
+                   style="border-collapse: collapse; border: 5px solid #88c1d8">
+                <tbody>
+                <tr>
+                    <td valign="top" align="center" style="padding: 25px 0px">
+{#                        <img src="{% static 'images/slice_republic_logo.png' %}" alt="Slice Republic Logo" width="100" height="100">#}
+                        <img src="http://ec2-52-30-123-189.eu-west-1.compute.amazonaws.com:8000/static/images/fitopia_email_logo.png" alt="Fitopia Logo" width="100" height="100">
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top"
+                        style="padding-left: 30px; padding-top: 10px; font-size: 14px; font-family:Helvetica;">
+                        Dear {{ user.first_name }} {{ user.last_name }},
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top"
+                        style="padding:10px 30px 0px 30px; text-align: justify; font-size: 14px; font-family:Helvetica; line-height: 125%;">
+                        This confirms your booking for {{ booking.slice_class.name }} at {{ booking.slice_class.studio.name }} on
+                        {{ booking.slice_class.start_date | date:"jS F Y" }} at {{ booking.slice_class.start_time | date:"G:i" }}. If for any reason you need to cancel this booking please ensure you do this within the
+                        necessary timeframe to avoid incurring a charge.
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top"
+                        style="padding-left: 30px; padding-top: 10px; font-size: 14px; font-family:Helvetica;">
+                        We look forward to seeing you.
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top"
+                        style="padding-left: 30px; padding-top: 10px; padding-bottom: 10px; font-size: 14px; font-family:Helvetica; line-height: 125%;">
+                        Best wishes.<br>
+                        The Fitopia Team
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top" align="center">
+                        <table width="600" border="0" cellspacing="0"
+                               style="border-collapse: collapse; min-width: 100%; background: #ffffff; border-top: 0; border-bottom: 0;">
+                            <tbody>
+                            <tr>
+                                <td style="min-width: 100%; padding:5px 30px 10px;">
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0"
+                                           style="border-top-width: 1px; border-top-style: solid; border-top-color: #999999; border-collapse: collapse">
+                                        <tbody>
+                                        <tr>
+                                            <td>
+                                                <span></span>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top" align="center">
+                        <table width="600" border="0" cellspacing="0"
+                               style="border-collapse: collapse; min-width: 100%; background: #ffffff; border-top: 0; border-bottom: 0;">
+                            <tbody>
+                            <tr>
+                                <td valign="top"
+                                    style="padding: 0px 30px 19px 30px; color:#606060;font-family:Helvetica;font-size:11px;line-height:125%;text-align:left">
+                                    <div style="text-align: center">
+                                        <strong>CANCELLATION POLICY</strong><br>
+                                        External classes: 24 hours notice is required and late cancellations will incur a loss of one credit.
+                                        Home studio classes: the standard home studio policy applies.
+                                        For further details please consult your home studio.
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top" align="center">
+                        <table width="600" border="0" cellspacing="0"
+                               style="border-collapse: collapse; min-width: 100%; background: #ffffff; border-top: 0; border-bottom: 0;">
+                            <tbody>
+                            <tr>
+                                <td valign="top"
+                                    style="padding: 0px 30px 19px 30px; color:#606060;font-family:Helvetica;font-size:11px;line-height:125%;text-align:left">
+                                    <div style="text-align: center">
+                                        Please direct any queries to: <a href="mailto:hello@fitopia.co.uk"
+                                                                         style="color: #606060">hello@fitopia.co.uk</a>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
+    </tbody>
+{% endblock content %}

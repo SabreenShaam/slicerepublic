@@ -1,0 +1,13 @@
+{% extends 'emails/base_email.html' %}
+
+{% block content %}
+    <p>Hi there,</p>
+
+    <p>Welcome to our studio.</p>
+    <p>You can use your credentials to login with studio. </p>
+{#    <p><a href={{ host_name }}"/studios/verify?email={{ user_email }}&hash={{ verification_code }}">{{ host_name }}/studios/verify?email={{ user_email }}&hash={{ verification_code }}</a> </p>#}
+    <p>If you don't want to let the person to sign up, just ignore this message.</p>
+    <p>Thanks! <br>
+       - The SliceRepublic Team</p>
+
+{% endblock content %}

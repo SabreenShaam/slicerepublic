@@ -1,0 +1,136 @@
+/*#88C1D8*/
+/*#505050 Grey*/
+
+@font-face {
+    font-family: myriad-pro;
+    src: url('../fonts/myriad-pro/MYRIADPRO-REGULAR.woff') format('woff')
+}
+
+body {
+    padding-top: 50px;
+    font-family: "Open Sans",Arial,Helvetica,sans-serif;
+}
+
+.navbar-inverse {
+    background-color: #88c1d8;
+    border-color: #ffffff;
+}
+
+.navbar-inverse .navbar-brand {
+    color: #ffffff;
+}
+
+.navbar-brand {
+    font-size: 25px;
+    /*font-family: myriad-pro;*/
+    font-family: 'Lobster Two';
+    font-size: 32px;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #ffffff;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover {
+    color: #337ab7;
+    border-bottom: 4px solid #337ab7;
+    padding-bottom: 11px;
+}
+
+.panel-default {
+    border-color: #88c1d8;
+}
+
+.panel-default > .panel-heading {
+    background-color: #88c1d8;
+    border-color: #88c1d8;
+    color: #ffffff;
+}
+
+.search {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.bookings-table {
+    border: 1px solid #ddd;
+}
+
+.bookings-table table {
+    margin-bottom: 0px;
+}
+
+.bookings-heading {
+    font-family: myriad-pro;
+    color: #555;
+}
+
+.slice_republic_logo {
+    height: 60px;
+    width: 60px;
+}
+
+.weight-600 {
+    font-weight: 600;
+}
+
+
+.invert-button {
+    background-color: #337ab7;
+    border-color: #337ab7;
+    color: #ffffff;
+}
+
+.invert-button:hover {
+    background-color: #ffffff;
+    border-color: #337ab7;
+    color: #337ab7;
+}
+
+.margin-top-10 {
+    margin-top: 10px;
+}
+
+.margin-bottom-10 {
+    margin-bottom: 10px;
+}
+
+.modal-dialog {
+    padding-top: 10%;
+    /*top: 50% !important;*/
+    /*left: 50%;*/
+}
+
+.signup-container {
+    width: 450px;
+    position: fixed;
+    top: 30%;
+    right: 0;
+    left: 0;
+}
+
+.signup-container .alert {
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+ul.errorlist {
+    padding-left: 0px;
+    margin-bottom: 0px;
+}
+
+ul.errorlist > li {
+    color:red;
+    list-style: none;
+}
+
+a.active {
+    border-bottom: 4px solid #337ab7;
+    padding-bottom: 11px !important;
+}
+
+a:focus {
+    outline: none;
+}

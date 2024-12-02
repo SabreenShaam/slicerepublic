@@ -1,0 +1,25 @@
+<div class="modal-dialog modal-sm">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">Log In</h4>
+        </div>
+        <div class="modal-body">
+            <form id="staff-login-form" action="." method="post">
+                <div id="login-message"></div>
+                {% csrf_token %}
+                <input id="staff-login-email" type="text" name="email" class="form-control" placeholder="Email">
+
+                <input id="staff-login-password" type="password" name="password" class="form-control margin-top-10" placeholder="Password">
+
+                <select id="staff-login-home-studio" name="studios" class="form-control margin-top-10">
+                    <option value="">- Select home studio -</option>
+                    <option value="1">Sandbox</option>
+                </select>
+
+                <button type="submit" class="btn btn-primary btn-block invert-button modal-btn margin-top-10">Log In</button>
+            </form>
+        </div>
+    </div>
+    <!-- /.modal-content -->
+</div><!-- /.modal-dialog -->

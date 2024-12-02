@@ -1,0 +1,11 @@
+{% extends 'emails/base_email.html' %}
+
+{% block content %}
+    <p>Dear Studio,</p>
+
+    <p>A new user has joined your Mindbody account using the Fitopia app (www.fitopia.co.uk)</p>
+    <p>For your reference, the username of the person who has joined is {{ user_email }}.</p>
+    <p>Many thanks <br>
+       The Team at Fitopia"</p>
+
+{% endblock content %}

@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load dictionary %}
+
+{% block navBrandHref %}
+    {% url 'studio_home' %}
+{% endblock navBrandHref %}
+
+{% block navbar %}
+    <ul class="nav navbar-nav navbar-right">
+        {% if not request.user.is_authenticated %}
+            <li><a class="weight-600 text-uppercase" href="#" data-toggle="modal" data-target="#staff-login-modal">Log
+                In</a>
+            </li>
+            <li><a class="weight-600 text-uppercase white-border" href="{% url 'studio_staff_signup' %}">sign up</a>
+            </li>
+        {% else %}
+            <li><a class="weight-600 text-uppercase active" href="{% url 'bookings' %}">Bookings</a></li>
+            <li><a class="weight-600 text-uppercase" href="{% url 'studio_staff_logout' %}">Logout</a>
+            </li>
+        {% endif %}
+    </ul>
+{% endblock navbar %}
+
+{% block content %}
+    <div class="container">
+        <h2 class="bookings-heading">Bookings</h2>
+        <hr>
+        <div class="search">
+            <form class="form-inline" action=".">
+                {% if request.user.is_superuser %}
+                    <select class="form-control" name="location">
+                        <option value="0">All locations</option>
+                        {% for studio in studios %}
+                            {{ request.GET.location }}
+                            {% if location == studio.id %}
+                                <option value="{{ studio.id }}" selected="selected">{{ studio.name }}</option>
+                            {% else %}
+                                <option value="{{ studio.id }}">{{ studio.name }}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                {% endif %}
+                <input id="from-date" type="text" class="form-control datepicker" placeholder="From" name="from_date"
+                       value="{{ from_date }}">
+                <input id="to-date" type="text" class="form-control datepicker" placeholder="To" name="to_date"
+                       value="{{ to_date }}">
+                <button type="submit" class="btn invert-button weight-600 text-uppercase">Search</button>
+            </form>
+        </div>
+
+        {% if bookings %}
+            <div class="bookings-table">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Site ID</th>
+                        <th>Date</th>
+                        <th>Class name</th>
+                        <th>Username</th>
+                        <th>Home studio</th>
+                        <th>Location</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for booking in bookings %}
+                        <tr>
+{#                            <td>{{ booking.slice_class.mbo_site_id }}</td>#}
+                            <td>{{ studio_map|key_value:booking.slice_class.mbo_site_id }}</td>
+                            <td>{{ booking.slice_class.start_date }}</td>
+                            <td>{{ booking.slice_class.name }}</td>
+                            <td>{{ booking.user.email }}</td>
+                            <td>{{ studio_map|key_value:booking.user.mbo_client.mbo_site_id }}</td>
+                            <td>{{ booking.slice_class.location.name }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% else %}
+            <div class="alert alert-info" role="alert">Oops! There is no bookings to show.</div>
+        {% endif %}
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="staff-login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        {% include 'login.html' %}
+    </div>
+    <!-- /.modal -->
+{% endblock content %}
+
+{% block script %}
+    <script type="text/javascript" src="{% static 'js/ajax-setup.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bookings/login.js' %}"></script>
+{% endblock script %}

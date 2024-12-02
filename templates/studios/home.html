@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block navbar %}
+    <ul class="nav navbar-nav navbar-right">
+        {% if not request.user.is_authenticated %}
+            <li><a class="weight-600 text-uppercase" href="#" data-toggle="modal" data-target="#staff-login-modal">Log
+                In</a>
+            </li>
+            <li><a class="weight-600 text-uppercase" href="{% url 'studio_staff_signup' %}">sign up</a>
+            </li>
+        {% else %}
+            <li><a class="weight-600 text-uppercase" href="{% url 'studio_bookings' %}">Bookings</a></li>
+            <li><a class="weight-600 text-uppercase" href="{% url 'studio_staff_logout' %}">Logout</a>
+            </li>
+        {% endif %}
+    </ul>
+{% endblock navbar %}
+
+{% block content %}
+    <!-- Modal -->
+    <div class="modal fade" id="staff-login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        {% include 'login.html' %}
+    </div>
+    <!-- /.modal -->
+{% endblock content %}
+
+{% block script %}
+    <script type="text/javascript" src="{% static 'js/ajax-setup.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bookings/login.js' %}"></script>
+{% endblock script %}

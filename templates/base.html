@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/bootstrap-datepicker3.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/slicerepublic.css' %}" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lobster+Two' rel='stylesheet' type='text/css'>
+    <script src="{% static 'js/jquery-1.11.3.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap-datepicker.min.js' %}"></script>
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            {#            <img class="slice_republic_logo" src="../static/images/slice_republic_logo.png">#}
+            <a class="navbar-brand" href="{% block navBrandHref %} {% endblock navBrandHref %}">Slice Republic</a>
+        </div>
+
+        <div id="navbar" class="navbar-collapse collapse">
+            {#          <form method="post" action="/" class="navbar-form navbar-right">#}
+            {#              {% csrf_token %}#}
+            {#            <div class="form-group">#}
+            {#              <input type="text" placeholder="Email" class="form-control">#}
+            {#            </div>#}
+            {#            <div class="form-group">#}
+            {#              <input type="password" placeholder="Password" class="form-control">#}
+            {#            </div>#}
+            {#            <button type="submit" name="signin" class="btn login-button text-uppercase weight-600">log in</button>#}
+            {#          </form>#}
+{#            <form class="navbar-form navbar-right">#}
+{#                <button id="login" class="btn login-button text-uppercase weight-600">log in</button>#}
+{#            </form>#}
+            {% block navbar %} {% endblock navbar %}
+        </div>
+        <!--/.navbar-collapse -->
+    </div>
+</nav>
+{% block content %} {% endblock content %}
+</body>
+
+</html>
+<script type="application/javascript">
+    $(function(){
+        $('.datepicker').datepicker({
+            format:'dd/mm/yyyy',
+            orientation:'top',
+            immediateUpdates:'true',
+            todayHighlight:'true'
+        });
+
+        $('.datepicker').on('changeDate', function(ev){
+            $(this).datepicker('hide');
+        });
+    })
+</script>
+{% block script %} {% endblock %}

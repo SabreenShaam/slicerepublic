@@ -1,0 +1,13 @@
+{% extends 'emails/base_email.html' %}
+
+{% block content %}
+    <p>Hi there,</p>
+
+    <p>Someone has signed up as a staff user of your studio on SliceRepublic.</p>
+    <p>Please verify the staff sign up request by clicking on the link provided below.</p>
+    <p><a href="http://127.0.0.1:8000/studios/verify?email={{ staff_email }}&hash={{ verification_code }}">http://127.0.0.1:8000/studios/verify?email={{ staff_email }}&hash={{ verification_code }}</a> </p>
+    <p>If you don't want to let the person to sign up, just ignore this message.</p>
+    <p>Thanks! <br>
+       - The SliceRepublic Team</p>
+
+{% endblock content %}
